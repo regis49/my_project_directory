@@ -2,59 +2,40 @@
 
 namespace App\Entity;
 
-use App\Repository\AgentRepository;
+use App\Repository\ArgentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: AgentRepository::class)]
-class Agent
+#[ORM\Entity(repositoryClass: ArgentRepository::class)]
+class Argent
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 5)]
-    #[Assert\NotBlank()]
-    #[Assert\Length(max: 5)]
-    private ?string $nummat = null;
-
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     #[Assert\NotBlank()]
     #[Assert\Length(min: 2, max: 50)]
     private ?string $nameagent = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     #[Assert\NotBlank()]
-    #[Assert\Length(min: 2 , max: 50)]
+    #[Assert\Length(min: 2, max: 50)]
     private ?string $surnameagent = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\NotNull()]
     #[Assert\Date]
     private ?\DateTimeInterface $birthday = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\NotNull()]
     #[Assert\Date]
-    private ?\DateTimeInterface $datepaidsalary = null;
+    private ?\DateTimeInterface $datepaysalary = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNummat(): ?string
-    {
-        return $this->nummat;
-    }
-
-    public function setNummat(string $nummat): self
-    {
-        $this->nummat = $nummat;
-
-        return $this;
     }
 
     public function getNameagent(): ?string
@@ -93,14 +74,14 @@ class Agent
         return $this;
     }
 
-    public function getDatepaidsalary(): ?\DateTimeInterface
+    public function getDatepaysalary(): ?\DateTimeInterface
     {
-        return $this->datepaidsalary;
+        return $this->datepaysalary;
     }
 
-    public function setDatepaidsalary(\DateTimeInterface $datepaidsalary): self
+    public function setDatepaysalary(\DateTimeInterface $datepaysalary): self
     {
-        $this->datepaidsalary = $datepaidsalary;
+        $this->datepaysalary = $datepaysalary;
 
         return $this;
     }

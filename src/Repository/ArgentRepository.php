@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Agent;
+use App\Entity\Argent;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Agent>
+ * @extends ServiceEntityRepository<Argent>
  *
- * @method Agent|null find($id, $lockMode = null, $lockVersion = null)
- * @method Agent|null findOneBy(array $criteria, array $orderBy = null)
- * @method Agent[]    findAll()
- * @method Agent[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Argent|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Argent|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Argent[]    findAll()
+ * @method Argent[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AgentRepository extends ServiceEntityRepository
+class ArgentRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Agent::class);
+        parent::__construct($registry, Argent::class);
     }
 
-    public function save(Agent $entity, bool $flush = false): void
+    public function save(Argent $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class AgentRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Agent $entity, bool $flush = false): void
+    public function remove(Argent $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class AgentRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Agent[] Returns an array of Agent objects
+//     * @return Argent[] Returns an array of Argent objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class AgentRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Agent
+//    public function findOneBySomeField($value): ?Argent
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')
