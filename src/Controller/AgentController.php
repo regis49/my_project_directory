@@ -14,7 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AgentController extends AbstractController
 {
+<<<<<<< HEAD
     #[Route('/agent', name: 'agent.index', methods: 'GET')]
+=======
+    #[Route('/agent', name:'agent.index', methods: 'GET')]
+>>>>>>> 4f8ae47c1ef0ef955ab7912a67b77a90d191ff7e
     public function index(AgentRepository $repository, PaginatorInterface $paginator, Request $request): Response
     {
 
@@ -23,13 +27,18 @@ class AgentController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> 4f8ae47c1ef0ef955ab7912a67b77a90d191ff7e
 
         return $this->render('pages/agent/index.html.twig', [
             'agents' => $agents
         ]);
     }
 
+<<<<<<< HEAD
     #[Route('/agent/nouveau', 'agent.new', methods: ['GET', 'POST'])]
     public function new(
         Request $request,
@@ -37,6 +46,16 @@ class AgentController extends AbstractController
     ): Response {
         $agent = new Agent();
         $form = $this->createForm(AgentType::class, $agent);
+=======
+#[Route('/agent/nouveau','agent.new', methods:['GET','POST'])]
+    public function new(
+        Request $request,
+        EntityManagerInterface $manager
+        ):Response
+    {
+        $agent = new Agent();
+        $form = $this->createForm(AgentType::class,$agent);
+>>>>>>> 4f8ae47c1ef0ef955ab7912a67b77a90d191ff7e
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
