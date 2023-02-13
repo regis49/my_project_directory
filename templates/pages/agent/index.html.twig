@@ -27,6 +27,9 @@
 					<th scope="col">Prénom Agent</th>
 					<th scope="col">Date de naissance</th>
 					<th scope="col">Date de paye salaire</th>
+					<th scope="col">Modifier</th>
+					<th scope="col">Supprimer</th>
+
 
 				</tr>
 			</thead>
@@ -39,7 +42,17 @@
 						<td>{{ agent.prenomagent }}</td>
 						<td>{{ agent.datenais|date("d/m/Y") }}</td>
 						<td>{{ agent.datepaysalary|date("d/m/Y") }}</td>
+						<td>
+							<a href="{{ path('agent.edit', { id: agent.id }) }}" class="btn btn-info">
+								Modifier
+							</a>
+						</td>
+						<td>
+							<a href="{{ path('agent.delete', { id: agent.id }) }}" class="btn btn-warning">
+								Supprimer
+							</a>
 
+						</td>
 
 					</tr>
 				{% endfor %}
