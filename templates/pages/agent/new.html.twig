@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% block title %}Ajout - Agent
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="mt-4">Enrégistrement d'un agent</h1>
+
+		<a href="{{ path('agent.index') }}" class="btn btn-primary">
+			Voir la liste des agents
+		</a>
+
+
+		{{ form_start(form) }}
+
+		<div class="form-group">
+			{{ form_label(form.nomagent) }}
+			{{ form_widget(form.nomagent) }}
+			<div class="form-error">
+				{{ form_errors(form.nomagent) }}
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			{{ form_label(form.prenomagent) }}
+			{{ form_widget(form.prenomagent) }}
+			<div class="form-error">
+				{{ form_errors(form.prenomagent) }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_label(form.datenais) }}
+			{{ form_widget(form.datenais) }}
+			<div class="form-error">
+				{{ form_errors(form.datenais) }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_label(form.datepaysalary) }}
+			{{ form_widget(form.datepaysalary) }}
+			<div class="form-error">
+				{{ form_errors(form.datepaysalary) }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_row(form.submit) }}
+		</div>
+
+
+		{{ form_end(form) }}
+
+	</div>
+{% endblock %}
