@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block title %}Ajout - Localité
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="mt-4">Enrégistrement d'une localité</h1>
+
+		<a href="{{ path('localite.index') }}" class="btn btn-primary">
+			Voir la liste des localités
+		</a>
+
+
+		{{ form_start(form) }}
+
+		<div class="form-group">
+			{{ form_label(form.libloca) }}
+			{{ form_widget(form.libloca) }}
+			<div class="form-error">
+				{{ form_errors(form.libloca) }}
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			{{ form_row(form.submit) }}
+		</div>
+
+
+		{{ form_end(form) }}
+
+	</div>
+{% endblock %}
+
